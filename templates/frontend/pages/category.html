@@ -1,0 +1,287 @@
+{% extends ('frontend/layout.html') %}
+{% block content %}
+
+<!-- Fruits Shop Start-->
+<div class="container-fluid fruite py-5">
+    <div class="container py-5">
+        <h1 class="mb-4">Sản Phẩm của shop</h1>
+        <div class="row g-4">
+            <div class="col-lg-12">
+                <div class="row g-4">
+                    <div class="col-xl-3">
+                        <div class="input-group w-100 mx-auto d-flex ">
+                            <form action="{{url_for('home.category')}}" method="get">
+                                <div class="input-group w-100 mx-auto d-flex ">
+                                    <input type="search" class="form-control p-4 text-danger bg-info"
+                                        placeholder="Tìm kiếm ở đây" name="search" value="">
+                                    <button type="submit" class="input-group-text p-4 bg-secondary"><i
+                                            class="fa fa-search text-danger bold"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-6"></div>
+                    <div class="col-xl-3">
+                        <form action="{{url_for('home.category')}}" method="get">
+                            <div class="bg-secondary ps-3 py-3 rounded-pill d-flex justify-content-between mb-4">
+                                <label for="fruits" class="text-danger bold">Sắp xếp Sản Phẩm:</label>
+                                <select id="fruits" name="sort"
+                                    class="border-1 border-primary form-select-sm bg-info me-3"
+                                    onchange="this.form.submit()">
+                                    <option value="">==chọn==</option>
+                                    <option value="price_asc">Giá tăng dần</option>
+                                    <option value="price_desc">Giá giảm dần</option>
+                                    <option value="date_desc">Ngày mới nhất</option>
+                                    <option value="date_asc">Ngày trước đây</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row g-4">
+                    <div class="col-lg-3">
+                        <div class="row g-4">
+                            <div class="col-lg-12">
+                                <div class="mb-3 ">
+                                    <h4 style="color: bisque;background-color: rgb(86, 142, 3);"
+                                        class="rounded-pill text-center">Danh Sách Sản phẩm</h4>
+                                    <ul class="list-unstyled fruite-categorie">
+                                        {% for c in cate %}
+                                        <li>
+                                            <div class="d-flex justify-content-between fruite-name text-info">
+                                                <a href="{{url_for('home.category',cat_id=c.id)}}"
+                                                    style="color: blue;font-weight: bold;"><i
+                                                        class="fas fa-mobile text-danger "></i> {{c.name}}</a>
+                                                <span>({{c.products |length}})</span>
+                                            </div>
+                                        </li>
+                                        {% endfor%}
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="mb-3">
+                                    <h4 style="color: bisque;background-color: rgb(86, 142, 3);"
+                                        class="rounded-pill text-center mb-3">Giá Sản Phẩm</h4>
+                                    <form action="{{url_for('home.category')}}" method="get">
+                                        <input type="range" class="form-range w-100" id="rangeInput" name="max_price"
+                                            min="0" max="1000000" value="{{max_price or 1000000}}"
+                                            oninput="document.getElementById('amount').value=this.value"
+                                            onchange="this.form.submit()">
+                                        <output id="amount" name="amount" for="rangeInput">{{"{:,.3f}".format(max_price
+                                            or 1000000)}}</output>
+                                    </form>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <h4 style="color: bisque;background-color: rgb(86, 142, 3);"
+                                    class="rounded-pill text-center mb-3">Sản Phẩm nổi bật</h4>
+                                {% for f in feature %}
+                                <div class="d-flex align-items-center justify-content-start">
+                                    <div class="rounded me-4" style="width: 100px; height: 100px;">
+                                        <a href="{{url_for('home.detail',name=f.name | slug,id=f.id)}}">
+                                            <img src="{{url_for('static',filename='upload/'+ f.image)}}"
+                                                class="img-fluid w-100 rounded-pill" alt="{{f.name}}">
+                                        </a>
+                                    </div>
+                                    <div>
+                                        <a href="{{url_for('home.detail',name=f.name |slug ,id=f.id)}}">
+                                            <h4>{{f.name}}</h4>
+                                        </a>
+                                        <div class="d-flex mb-2">
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star text-secondary"></i>
+                                            <i class="fa fa-star"></i>
+                                        </div>
+                                        <div class="d-flex mb-2">
+                                            <h5 class="fw-bold me-2">{{"{:,.3f}".format(f.price)}}đ/ốp</h5>
+                                            <h5 class="text-danger text-decoration-line-through">
+                                                {{"{:,.3f}".format(f.price+21)}} đ/ốp</h5>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                            <div class="d-flex justify-content-center my-4">
+                                <a href="{{url_for('home.category')}}"
+                                    class="btn border border-secondary px-4 py-3 rounded-pill text-primary w-100">XEM
+                                    THÊM</a>
+                            </div>
+                            <div class="col-lg-12 bg-info">
+                                <div class="position-relative">
+                                    <img src="{{url_for('static',filename='frontend/img/bn22.jpg')}}"
+                                        class="img-fluid w-80 rounded" alt="">
+                                    <div class="position-absolute"
+                                        style="top: 50%; right: 10px; transform: translateY(-50%);">
+                                        <h3 class="text-secondary fw-bold">IPHONE <br> ỐP <br> KÍNH</h3>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="row g-4 justify-content-center">
+                            <style>
+                                /* Đảm bảo hình ảnh luôn vừa với container */
+                                /* Căn chỉnh hình ảnh để chúng đều nhau */
+                                .fruite-img img {
+                                    width: 100%;
+                                    /* Đảm bảo hình ảnh chiếm hết chiều rộng của container */
+                                    height: 200px;
+                                    /* Đặt chiều cao cố định cho hình ảnh */
+                                    object-fit: cover;
+                                    /* Đảm bảo hình ảnh không bị méo và luôn đầy đủ trong container */
+                                    border-radius: 50%;
+                                    /* Nếu bạn muốn hình ảnh có hình dạng tròn */
+                                }
+
+                                /* Đảm bảo container của hình ảnh luôn có kích thước nhất quán */
+                                .fruite-img {
+                                    width: 100%;
+                                    height: 200px;
+                                    /* Chiều cao cố định cho phần container hình ảnh */
+                                    overflow: hidden;
+                                    /* Đảm bảo phần tràn sẽ bị ẩn */
+                                }
+
+
+                                /* Đảm bảo text không bị tràn ra ngoài */
+                                .fruite-item h4 {
+                                    font-size: 1.2rem;
+                                    /* Điều chỉnh kích thước chữ cho phù hợp */
+                                    white-space: nowrap;
+                                    /* Ngừng xuống dòng nếu chữ quá dài */
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    /* Thêm dấu '...' nếu chữ dài quá */
+                                }
+
+                                /* Đảm bảo mô tả không tràn */
+                                .fruite-item p {
+                                    font-size: 1rem;
+                                    /* Điều chỉnh kích thước chữ */
+                                    white-space: normal;
+                                    /* Cho phép xuống dòng */
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    display: -webkit-box;
+                                    
+                                    /* Giới hạn số dòng hiển thị */
+                                    -webkit-box-orient: vertical;
+                                }
+
+                                /* Đảm bảo các phần tử trong phần thông tin sản phẩm không bị tràn */
+                                .fruite-item .d-flex {
+                                    flex-wrap: wrap;
+                                    /* Cho phép các phần tử linh động thay đổi kích thước */
+                                    justify-content: space-between;
+                                    /* Căn chỉnh các phần tử trong container */
+                                }
+
+                                .fruite-item .d-flex p {
+                                    font-size: 1.2rem;
+                                    /* Điều chỉnh kích thước chữ */
+                                    margin: 0;
+                                    /* Loại bỏ margin mặc định */
+                                }
+
+                                .fruite-item .themgiohang {
+                                    font-size: 1rem;
+                                    /* Điều chỉnh kích thước chữ */
+                                    white-space: nowrap;
+                                    /* Ngừng xuống dòng */
+                                    overflow: hidden;
+                                    text-overflow: ellipsis;
+                                    /* Thêm dấu '...' nếu chữ quá dài */
+                                }
+
+                                /* Giới hạn chiều cao của phần mô tả nếu có thể */
+                                .fruite-item .p-4 {
+                                    max-height: 400px;
+                                    /* Giới hạn chiều cao của khối thông tin sản phẩm */
+                                    overflow: hidden;
+                                    /* Ẩn phần tràn */
+                                }
+
+                                .fruite-item .fruite-img {
+                                    max-height: 200px;
+                                    /* Giới hạn chiều cao của phần hình ảnh */
+                                    overflow: hidden;
+                                    /* Ẩn phần tràn */
+                                }
+
+                                /* Điều chỉnh khi hiển thị trên các thiết bị nhỏ */
+                                @media (max-width: 768px) {
+                                    .fruite-item {
+                                        padding: 15px;
+                                    }
+
+                                    .fruite-item h4 {
+                                        font-size: 1.1rem;
+                                    }
+
+                                    .fruite-item p {
+                                        font-size: 0.9rem;
+                                    }
+                                }
+                            </style>
+                            {% for p in sanpham %}
+                            <div class="col-md-6 col-lg-6 col-xl-4">
+                                <div class="rounded position-relative fruite-item">
+                                    <div class="fruite-img">
+                                        <a href="{{url_for('home.detail',name=p.name | slug,id=p.id)}}">
+                                            <img src="{{url_for('static',filename='upload/'+ p.image)}}"
+                                                class="img-fluid w-100 rounded-pill" alt="{{p.name}}">
+                                        </a>
+                                    </div>
+                                    <div class="text-white bg-secondary px-3 py-1 rounded position-absolute"
+                                        style="top: 10px; left: 10px;">{{p.category.name}}</div>
+                                    <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                        <a href="{{url_for('home.detail',name=p.name |slug ,id=p.id)}}">
+                                            <h4>{{p.name}}</h4>
+                                        </a>
+                                        <p>{{p.desc | safe}}</p>
+                                        <div class="d-flex justify-content-between flex-lg-wrap">
+                                            <p class="text-info fs-2 fw-bold mb-0 ">{{"{:,.3f}".format(p.price)}}
+                                                đ/ ốp</p>
+                                            <a href="#" data-product-id="{{p.id}}"
+                                                class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                    class="fa fa-shopping-bag me-2 text-danger"></i>MUA LIỀN</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <div class="col-12">
+                                <div class="pagination d-flex justify-content-center mt-5">
+                                    {% if page >1%}
+                                    <a href="{{url_for('home.category',search=tim,cat_id=id_dm,sort=sapxep,min_price=min_p,max_price=max_p,page=page-1)}}"
+                                        class="rounded">&laquo;</a>
+                                    {% endif %}
+
+                                    {% for p in range(1,pages+1) %}
+                                    <!-- <a href="#" class="active rounded">1</a> -->
+
+                                    <a href="{{url_for('home.category',search=tim,cat_id=id_dm,sort=sapxep,min_price=min_p,max_price=max_p,page=p)}}"
+                                        class="rounded {% if p==page %} active {% endif %}">{{p}}</a>
+
+                                    {% endfor %}
+                                    {% if page < pages%} <a
+                                        href="{{url_for('home.category',search=tim,cat_id=id_dm,sort=sapxep,min_price=min_p,max_price=max_p,page=page+1)}}"
+                                        class="rounded">&raquo;</a>
+                                        {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fruits Shop End-->
+
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends('backend/layout.html') %}
+{% block content %}
+<div class="content">
+    <div class="container">
+      <div class="page-title">
+        <h3>List Account</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-12 col-lg-12">
+          <div class="card">
+            <div class="card-header">
+                <a href="{{url_for('hethong.acc.add')}}" class="btn btn-success"><i class=" fas fa-plus"></i>Add Acount</a>
+            </div>
+            <div class="card-body">
+              <p class="card-title"></p>
+              <table
+                class="table table-hover"
+                id="dataTables-example"
+                width="100%"
+              >
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Phone</th>
+                    <th>Address</th>
+                    <th>Image</th>
+                    <th>Role</th>
+                    <th>Date create</th>
+                    <th>Date edit</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+               
+                <tbody>
+                    {% for sp in acc %}
+                  <tr>
+                    <td>{{sp.id}}</td>
+                    <td>{{sp.fullname}}</td>
+                    <td>{{sp.email}}</td>
+                    <td>{{sp.pasword}}</td>
+                    <td>{{sp.phone}}</td>
+                    <td>{{sp.address}}</td>
+                    <td>
+                        <img src="{{url_for('static',filename='upload/')}}{{sp.image}}" width="50">
+                    </td>
+                    <td>{{sp.role}}</td>
+                    <td>{{sp.create_at.strftime('%d/%m/%Y')}}</td>
+                    <td>{{sp.update_at.strftime('%d/%m/%Y')}}</td>
+                    <td>
+                        {% if sp.is_active %}
+                            <i class="fas fa-check"></i>
+                        {% else %}
+                        <i class="fas fa-times-circle"></i></i>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a href="{{url_for('hethong.acc.edit',id=sp.id)}}" class="btn btn-outline-info btn-rounded">
+                            <i class="fas fa-pen"></i>
+                        </a>
+                        <a href="{{url_for('hethong.acc.delete',id=sp.id)}}" class="btn btn-outline-danger btn-rounded">
+                            <i class="fas fa-trash"></i>
+                        </a>
+                    </td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,199 @@
+{% extends('frontend/layout.html')%}
+{% block content %}
+
+<!-- Single Page Header start -->
+<div class="container-fluid page-header py-5 bg-info">
+    <h1 class="text-center text-white display-6 bg-primary">Chi tiết giỏ hàng</h1>
+  
+</div>
+<!-- Single Page Header End -->
+
+
+<!-- Cart Page Start -->
+{% if cart %}
+
+<div class="container-fluid py-5 " style="background-color: burlywood;">
+    <div class="container py-5">
+        <div class="table-responsive">
+            <table class="table ">
+                <thead class="text-danger bold">
+                    <tr>
+                        <th scope="col">Sản phẩm</th>
+                        <th scope="col">Tên</th>
+                        <th scope="col">Giá</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Tổng cộng</th>
+                        <th scope="col">Xóa</th>
+                    </tr>
+                </thead>
+                <tbody class="text-muted bold">
+                    {% for pro_id, product in cart.items() %}
+                    <tr>
+                        <th scope="row">
+                            <div class="d-flex align-items-center">
+                                <img src="{{url_for('static',filename='upload/'+ product.image)}}" class="img-fluid me-5 rounded-circle"
+                                    style="width: 80px; height: 80px;" alt="">
+                            </div>
+                        </th>
+                        <td>
+                            <p class="mb-0 mt-4">{{product.name}}</p>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{"{:,.3f}".format(product.price)}}đ/ốp</p>
+                        </td>
+                        <td>
+                            <div class="input-group quantity mt-4" style="width: 100px;">
+                                <div class="input-group-btn">
+                                    <button data-product-id="{{pro_id}}" class="btn btn-sm btn-minus rounded-circle bg-light border">
+                                        <i class="fa fa-minus"></i>
+                                    </button>
+                                </div>
+                                <input type="text"  data-product-id="{{pro_id}}" value="{{product.quantity}}"
+                                       class="soluong-sp form-control rounded-pill form-control-sm text-center border-0" value="1">
+                                <div class="input-group-btn">
+                                    <button  data-product-id="{{pro_id}}" class="btn btn-sm btn-plus rounded-circle bg-light border">
+                                        <i class="fa fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <p class="mb-0 mt-4">{{"{:,.3f}".format(product.price*product.quantity)}}</p>
+                        </td>
+                        <td>
+                            <button data-product-id="{{pro_id}}" class=" xoagiohang btn btn-md rounded-circle bg-light border mt-4">
+                                <i class="fa fa-times text-danger"></i>
+                            </button>
+                        </td>
+
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+      
+        <div class="row g-4 justify-content-end">
+            <div class="col-8"></div>
+            <div class="col-sm-8 col-md-7 col-lg-6 col-xl-4">
+                <div class="bg-light rounded">
+                    <div class="p-4">
+                        <h1 class="display-6 mb-4 text-primary ">Giỏ hàng <span class="fw-normal">Tổng tiền</span></h1>
+                        <div class="d-flex justify-content-between mb-4">
+                            <h5 class="mb-0 me-4 text-danger  bold">Tổng cộng:</h5>
+                                {% set total=namespace(value=0) %}
+                                {% for pro_id, product in cart.items() %}
+                                    {% set total.value=total.value + (product.price*product.quantity)%}
+                                {% endfor %}
+                              
+                            <p class="mb-0 " style="color: rgb(51, 0, 255); font-size: 30px;font-weight: bold;">
+                                {{"{:,.3f}".format(total.value)}} đ
+                            </p>
+                        </div>
+                        <div class="d-flex justify-content-between">
+                            <h5 class="mb-0 me-4">Phí Giao Hàng</h5>
+                            <div class="">
+                                <p class="mb-0">tiền phí : 20.000 đ</p>
+                            </div>
+                        </div>
+                        <p class="mb-0 text-end">Giao hàng toàn quốc</p>
+                    </div>
+                    <div class="py-4 mb-4 border-top border-bottom d-flex justify-content-between">
+                        <h5 class="mb-0 ps-4 me-4" style="color: red; font-size: 40px;font-weight: bold;">Tổng tiền</h5>
+                        <p class="mb-0 pe-4" style="color: red; font-size: 30px;font-weight: bold;"> {{"{:,.3f}".format(total.value + 20)}} đ</p>
+                    </div>
+                    {% if current_user.is_authenticated %}
+                    <a href="{{url_for('home.checkout')}}" class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
+                        Thanh toán
+                    </a>
+                {% else %}
+                    <a href="{{url_for('secure.login')}}"  class="btn border-secondary rounded-pill px-4 py-3 text-primary text-uppercase mb-4 ms-4">
+                        Vui lòng đăng nhập
+                    </a>
+                {% endif %}
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% else %}
+  <div class=" text-center mt-40 mb-40"> Giỏ hàng trống !!!! </div>
+{% endif %}</h1>
+<!-- Cart Page End -->
+<!-- xóa sp trong chỗ tính tiền -->
+<script>
+    $(document).on('click', '.xoagiohang', function (e) {
+        const productId = $(this).data('product-id');
+        $.ajax({
+            url: '{{url_for("home.remove_cart")}}',
+            type: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify({ product_id: productId }),
+            success: function (ketqua) {
+                location.reload()
+            },
+            error: function () {
+                alert("Lỗi khi xóa sản phẩm trong giỏ hàng")
+            }
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        document.querySelectorAll(".btn-minus").forEach(button => {
+            button.addEventListener("click", function () {
+                updateCart(this.dataset.productId, -1)
+            })
+        });
+        document.querySelectorAll(".btn-plus").forEach(button => {
+            button.addEventListener("click", function () {
+                updateCart(this.dataset.productId, 1)
+
+            })
+        });
+        document.querySelectorAll(".soluong-sp").forEach(button => {
+            button.addEventListener("change", function () {
+               
+                const soluongmoi=parseInt(this.value)
+                alert(" Are you sure input product quantity?",soluongmoi)
+                if(soluongmoi>0 && soluongmoi < 100){
+                    updateCart(this.dataset.productId,soluongmoi,tunhap=true)
+                }else{
+                    if(soluongmoi > 100 ){
+                        alert("Số lượng không quá 100")                        
+                        location.reload()
+                    }
+                    else{
+                        alert("Số lượng phải ít nhất bằng 1")
+                        this.value=1
+                        location.reload()
+                    }
+                }
+            })
+        });
+        
+        function updateCart(productId, quantity,tunhap=false) {
+            $.ajax({
+                url: '{{url_for("home.update_cart")}}',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ id: productId, sl: quantity ,nhaptay:tunhap}),
+                success: function (ketqua) {
+                    alert(ketqua.new_quantity)
+                    location.reload()
+                },
+                error: function () {
+                    alert("Lỗi khi xóa sản phẩm trong giỏ hàng")
+                }
+            });
+        }
+
+
+    });
+
+
+
+
+
+</script>
+{% endblock %}

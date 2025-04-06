@@ -1,0 +1,15 @@
+flask
+flask_sqlalchemy
+flask_wtf
+wtforms
+flask_ckeditor
+flask_bcrypt
+flask_login
+flask_mail
+authlib
+requests
+unidecode
+flask_session
+redis
+mysqlclient
+email_validator

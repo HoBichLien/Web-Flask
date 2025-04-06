@@ -1,0 +1,839 @@
+{% extends ('frontend/layout.html') %}
+{% block content %}
+<!-- Hero Start -->
+<div class="container-fluid py-5 mb-5 hero-header">
+    <div class="container py-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-md-12 col-lg-7">
+                <h4 class="mb-3 text-secondary">Chất chơi cho Dế Yêu</h4>
+                <h1 class="mb-5 display-3 text-primary">Ốp Cho Couple</h1>
+                <div class="position-relative mx-auto">
+                    <input class="form-control border-2 border-secondary w-75 py-3 px-4 rounded-pill" type="number"
+                        placeholder="Tìm em ở đây nhé!!!">
+                    <button type="submit"
+                        class="btn btn-primary border-2 border-secondary py-3 px-4 position-absolute rounded-pill text-white h-100"
+                        style="top: 0; right: 25%;">MUA LIỀN</button>
+                </div>
+            </div>
+            <div class="col-md-12 col-lg-5">
+                <div id="carouselId" class="carousel slide position-relative" data-bs-ride="carousel">
+                    <div class="carousel-inner" role="listbox">
+                        <div class="carousel-item active rounded">
+                            <img src="{{url_for('static',filename='frontend/img/1.png')}}"
+                                class="img-fluid w-100 h-100 bg-secondary rounded" alt="First slide">
+                            <a href="#" class="btn px-4 py-2 text-white rounded">IPHONE 13</a>
+                        </div>
+                        <div class="carousel-item rounded">
+                            <img src="{{url_for('static',filename='frontend/img/2.png')}}"
+                                class="img-fluid w-100 h-100 rounded" alt="Second slide">
+                            <a href="#" class="btn px-4 py-2 text-white rounded">IPHONE 15</a>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselId"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Trước</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselId"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Sau</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero End -->
+<!-- Featurs Section Start -->
+<div class="container-fluid featurs py-5 bg-info">
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-danger mb-5 mx-auto">
+                        <i class="fas fa-car-side fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Miễn ship toàn quốc</h5>
+                        <p class="mb-0">Dành cho hóa đơn trên 200K</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-danger mb-5 mx-auto">
+                        <i class="fas fa-user-shield fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Thanh toán bảo mật</h5>
+                        <p class="mb-0">100% an toàn bí mật</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-danger mb-5 mx-auto">
+                        <i class="fas fa-exchange-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>30 hoàn hàng</h5>
+                        <p class="mb-0">Đảm bảo hoàn tiền trong 30 ngày</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="featurs-item text-center rounded bg-light p-4">
+                    <div class="featurs-icon btn-square rounded-circle bg-danger mb-5 mx-auto">
+                        <i class="fa fa-phone-alt fa-3x text-white"></i>
+                    </div>
+                    <div class="featurs-content text-center">
+                        <h5>Hỗ trợ</h5>
+                        <p class="mb-0">HOTLINE trực tiếp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featurs Section End -->
+
+
+<!-- Fruits Shop Start-->
+<div class="container-fluid fruite py-5 bg-secondary">
+    <div class="container py-5">
+        <div class="tab-class text-center">
+            <div class="row g-4">
+                <div class="col-lg-4 text-start">
+                    <h1 style="color: red;">Sản Phẩm Hottrend</h1>
+                </div>
+                <div class="col-lg-8 text-end">
+                    <ul class="nav nav-pills d-inline-flex text-center mb-5">
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-danger rounded-pill active" data-bs-toggle="pill"
+                                href="#tab-1">
+                                <span class="text-white" style="width: 130px;">TẤT CẢ </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex py-2 m-2 bg-danger rounded-pill" data-bs-toggle="pill" href="#tab-2">
+                                <span class="text-white" style="width: 130px;">IPHONE 13 PRO</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-danger rounded-pill" data-bs-toggle="pill" href="#tab-3">
+                                <span class="text-white" style="width: 130px;">IPHONE 12 </span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-danger rounded-pill" data-bs-toggle="pill" href="#tab-4">
+                                <span class="text-white" style="width: 130px;">IPHONE 13</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="d-flex m-2 py-2 bg-danger rounded-pill" data-bs-toggle="pill" href="#tab-5">
+                                <span class="text-white" style="width: 130px;">IPHONE 15 PRO</span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="tab-content">
+                <style>
+                    .fruite-item {
+                        position: relative;
+                        display: flex;
+                        flex-direction: column;
+                        height: 100%;
+                        overflow: hidden;
+                        /* Đảm bảo không có gì tràn ra ngoài */
+                        background-color: aliceblue;
+                    }
+
+                    .fruite-img {
+                        position: relative;
+                        overflow: hidden;
+                        height: 350px;
+                        /* Có thể điều chỉnh theo ý bạn */
+                    }
+
+                    .fruite-img img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        /* Giữ tỷ lệ hình ảnh mà không bị méo */
+                    }
+
+                    .fruite-item .p-4 {
+                        padding: 1.5rem;
+                        border-top: 1px solid #ddd;
+                        height: 200px;
+                        display: flex;
+                        flex-direction: column;
+                        justify-content: space-between;
+                    }
+
+                    .fruite-item .d-flex {
+                        display: flex;
+                        justify-content: space-between;
+                    }
+
+                    .fruite-item .text-white {
+                        position: absolute;
+                        top: 10px;
+                        left: 10px;
+                        background: rgba(0, 0, 0, 0.5);
+                        padding: 5px 10px;
+                        border-radius: 5px;
+                    }
+
+                    .fruite-item h4 {
+                        font-size: 1.25rem;
+                        margin: 0.5rem 0;
+                        color: red;
+                    }
+
+                    .fruite-item p {
+                        margin-bottom: 1rem;
+                        font-weight: bold;
+
+                    }
+
+                    .fruite-item .btn {
+                        padding: 0.5rem 1rem;
+                        border-radius: 20px;
+                        text-decoration: none;
+                    }
+                </style>
+                <div id="tab-1" class="tab-pane fade show p-0 active">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                {% for all in list_all %}
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a href="{{url_for('home.detail',name=all.name | slug,id=all.id)}}">
+                                                <img src="{{url_for('static',filename='upload/'+ all.image)}}"
+                                                    class="img-fluid w-100 rounded-pill" alt="{{all.name}}">
+                                            </a>
+                                        </div>
+                                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">Mới</div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <a href="{{url_for('home.detail',name=all.name |slug ,id=all.id)}}">
+                                                <h4>{{all.name}}</h4>
+                                            </a>
+                                            <p>{{all.desc |safe}}</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-info fs-2 fw-bold mb-0 ">{{"{:,.3f}".format(all.price)}}
+                                                    đ/ ốp</p>
+                                                <a href="{{url_for('home.product',name=all.name,id=all.id)}}"
+                                                    data-product-id="{{all.id}}"
+                                                    class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                        class="fa fa-shopping-bag me-2 text-danger"></i>MUA LIỀN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-2" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                {% for all1 in list_1 %}
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a href="{{url_for('home.detail',name=all1.name | slug,id=all1.id)}}">
+                                                <img src="{{url_for('static',filename='upload/'+ all1.image)}}"
+                                                    class="img-fluid w-100 rounded-pill" alt="{{all1.name}}">
+                                            </a>
+                                        </div>
+                                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">IPHONE 13 PRO</div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <a href="{{url_for('home.detail',name=all1.name |slug ,id=all1.id)}}">
+                                                <h4>{{all1.name}}</h4>
+                                            </a>
+                                            <p>{{all1.desc |safe}}</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-info fs-2 fw-bold mb-0 ">{{"{:,.3f}".format(all1.price)}}
+                                                    đ/ ốp</p>
+                                                <a href="#" data-product-id="{{all1.id}}"
+                                                    class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                        class="fa fa-shopping-bag me-2 text-danger"></i>MUA LIỀN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-3" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                {% for all2 in list_2 %}
+                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                    <div class="rounded position-relative fruite-item">
+                                        <div class="fruite-img">
+                                            <a href="{{url_for('home.detail',name=all2.name | slug,id=all2.id)}}">
+                                                <img src="{{url_for('static',filename='upload/'+ all2.image)}}"
+                                                    class="img-fluid w-100 rounded-circle" alt="{{all2.name}}">
+                                            </a>
+                                        </div>
+                                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                            style="top: 10px; left: 10px;">IPHONE 12 </div>
+                                        <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                            <a href="{{url_for('home.detail',name=all2.name |slug ,id=all2.id)}}">
+                                                <h4>{{all2.name}}</h4>
+                                            </a>
+                                            <p>{{all2.desc |safe}}</p>
+                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                <p class="text-info fs-2 fw-bold mb-0 ">{{"{:,.3f}".format(all2.price)}}
+                                                    đ/ ốp</p>
+                                                <a href="#" data-product-id="{{all2.id}}"
+                                                    class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                        class="fa fa-shopping-bag me-2 text-danger"></i>MUA LIỀN</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-4" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div id="tab-2" class="tab-pane fade show p-0">
+                                    <div class="row g-4">
+                                        <div class="col-lg-12">
+                                            <div class="row g-4">
+                                                {% for all3 in list_3 %}
+                                                <div class="col-md-6 col-lg-4 col-xl-3">
+                                                    <div class="rounded position-relative fruite-item">
+                                                        <div class="fruite-img">
+                                                            <a
+                                                                href="{{url_for('home.detail',name=all3.name | slug,id=all3.id)}}">
+                                                                <img src="{{url_for('static',filename='upload/'+ all3.image)}}"
+                                                                    class="img-fluid w-100 rounded-pill"
+                                                                    alt="{{all3.name}}">
+                                                            </a>
+                                                        </div>
+                                                        <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                                            style="top: 10px; left: 10px;">IPHONE 13 </div>
+                                                        <div
+                                                            class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                            <a
+                                                                href="{{url_for('home.detail',name=all3.name |slug ,id=all3.id)}}">
+                                                                <h4>{{all3.name}}</h4>
+                                                            </a>
+                                                            <p>{{all3.desc |safe}}</p>
+                                                            <div class="d-flex justify-content-between flex-lg-wrap">
+                                                                <p class="text-info fs-2 fw-bold mb-0 ">
+                                                                    {{"{:,.3f}".format(all3.price)}} đ/ ốp</p>
+                                                                <a href="#" data-product-id="{{all3.id}}"
+                                                                    class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                                        class="fa fa-shopping-bag me-2 text-danger"></i>MUA
+                                                                    LIỀN</a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                {% endfor %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="tab-5" class="tab-pane fade show p-0">
+                    <div class="row g-4">
+                        <div class="col-lg-12">
+                            <div class="row g-4">
+                                <div class="row g-4">
+                                    {% for all4 in list_4 %}
+                                    <div class="col-md-6 col-lg-4 col-xl-3">
+                                        <div class="rounded position-relative fruite-item">
+                                            <div class="fruite-img">
+                                                <a href="{{url_for('home.detail',name=all4.name | slug,id=all4.id)}}">
+                                                    <img src="{{url_for('static',filename='upload/'+ all4.image)}}"
+                                                        class="img-fluid w-100 rounded-circle" alt="{{all4.name}}">
+                                                </a>
+                                            </div>
+                                            <div class="text-white bg-primary px-3 py-1 rounded position-absolute"
+                                                style="top: 10px; left: 10px;">IPHONE 15 PRO </div>
+                                            <div class="p-4 border border-secondary border-top-0 rounded-bottom">
+                                                <a href="{{url_for('home.detail',name=all4.name |slug ,id=all4.id)}}">
+                                                    <h4>{{all4.name}}</h4>
+                                                </a>
+                                                <p>{{all4.desc |safe}}</p>
+                                                <div class="d-flex justify-content-between flex-lg-wrap">
+                                                    <p class="text-info fs-2 fw-bold mb-0 ">
+                                                        {{"{:,.3f}".format(all4.price)}} đ/ ốp</p>
+                                                    <a href="#" data-product-id="{{all4.id}}"
+                                                        class=" themgiohang btn border border-info rounded-pill px-3 text-danger bg-info"><i
+                                                            class="fa fa-shopping-bag me-2 text-danger"></i>MUA LIỀN</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fruits Shop End-->
+
+
+<!-- Featurs Start -->
+<div class="container-fluid service py-5 bg-primary">
+    <div class="container py-5">
+        <style>
+            .service-item {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+                overflow: hidden;
+                /* Đảm bảo không có phần tử nào tràn ra ngoài */
+                background-color: rgb(47, 230, 169);
+            }
+
+            .service-item img {
+                position: relative;
+                overflow: hidden;
+                height: 350px;
+            }
+
+            .service-content {
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 100%;
+                padding: 20px;
+                background-color: rgba(0, 0, 0, 0.5);
+                /* Màu nền mờ cho phần chữ */
+                color: #fff;
+            }
+
+            .service-item .service-content h5,
+            .service-item .service-content h3 {
+                margin: 0;
+            }
+        </style>
+        <div class="row g-4 justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <a href="#">
+                    <div class="service-item bg-light rounded border border-secondary">
+                        <img src="{{url_for('static',filename='frontend/img/logo.png')}}"
+                            class="img-fluid rounded-top w-100" alt="">
+                        <div class="px-4 rounded-bottom">
+                            <div class="service-content bg-info text-center p-4 rounded">
+                                <h5 class="text-white">Sale Off</h5>
+                                <h3 class="mb-0 text-secondary">20% OFF</h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="#">
+                    <div class="service-item bg-light rounded border border-dark ">
+                        <img src="{{url_for('static',filename='frontend/img/gh1.png')}}"
+                            class="img-fluid rounded-top w-80" alt="">
+                        <div class="px-4 rounded-bottom">
+                            <div class="service-content bg-info text-center p-4 rounded">
+                                <h5 class="text-primary">DỊCH VỤ</h5>
+                                <h3 class="mb-0 text-primary">Miễn phí </h3>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <a href="#">
+                    <div class="service-item bg-light rounded border border-primary">
+                        <img src="{{url_for('static',filename='frontend/img/sp.png')}}"
+                            class="img-fluid rounded-top w-100" alt="">
+                        <div class="px-4 rounded-bottom">
+                            <div class="service-content bg-info text-center p-4 rounded">
+                                <h5 class="text-white">Mẫu mới</h5>
+                                <h2 class="mb-0 text-danger"><i class="fas fa-tags"></i>Giảm 30.000 đ/ốp</h2>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featurs End -->
+
+
+<!-- Vesitable Shop Start-->
+<div class="container-fluid vesitable py-5 bg-info">
+    <div class="container py-5 ">
+        <h1 class="mb-0" style="top: 10px; right: 10px;color: red;">Ốp Mới Nhất Hiện Nay</h1>
+        <div class="owl-carousel vegetable-carousel justify-content-center">
+            <style>
+                /* Đảm bảo hình ảnh có kích thước bằng nhau */
+                .vesitable-img img {
+                    width: 100%;
+                    height: 200px;
+                    object-fit: cover;
+                    border-radius: 50%;
+                }
+
+                .vesitable-img {
+                    width: 100%;
+                    height: 200px;
+                    overflow: hidden;
+                }
+
+
+                /* Đảm bảo vị trí label "Hot Trending" luôn nằm đúng vị trí */
+                .vesitable-item .position-absolute {
+                    font-size: 1rem;
+                    padding: 5px 10px;
+                    z-index: 1;
+                    /* Đảm bảo label "Hot Trending" nằm trên các phần tử khác */
+                    border-radius: 5px;
+                    color: rgb(251, 3, 3);
+                    background-color: white;
+                }
+
+                /* Đảm bảo khối nội dung không bị tràn khi có quá nhiều text */
+                .vesitable-item h4 {
+                    font-size: 1.2rem;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    /* Thêm dấu '...' nếu tên quá dài */
+                }
+
+                .vesitable-item p {
+                    font-size: 1rem;
+                    white-space: normal;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                
+                    /* Giới hạn số dòng hiển thị */
+                    -webkit-box-orient: vertical;
+                }
+
+                /* Giới hạn chiều cao của phần mô tả */
+                .vesitable-item .p-4 {
+                    max-height: 400px;
+                    /* Giới hạn chiều cao của khối thông tin sản phẩm */
+                    overflow: hidden;
+                    /* Ẩn phần tràn */
+                }
+
+                /* Điều chỉnh các phần tử button và giá không bị tràn */
+                .vesitable-item .d-flex {
+                    flex-wrap: wrap;
+                    /* Cho phép các phần tử linh động thay đổi kích thước */
+                    justify-content: space-between;
+                }
+
+                .vesitable-item .themgiohang {
+                    font-size: 1rem;
+                    white-space: nowrap;
+                    /* Ngừng xuống dòng */
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    /* Thêm dấu '...' nếu chữ quá dài */
+                }
+
+                /* Giới hạn chiều cao phần hình ảnh */
+                .vesitable-img {
+                    max-height: 200px;
+                    /* Giới hạn chiều cao của phần hình ảnh */
+                    overflow: hidden;
+                    /* Ẩn phần tràn */
+                }
+
+                /* Responsive Design: Điều chỉnh khi hiển thị trên các thiết bị nhỏ */
+                @media (max-width: 768px) {
+                    .vesitable-item {
+                        padding: 15px;
+                    }
+
+                    .vesitable-item h4 {
+                        font-size: 1.1rem;
+                    }
+
+                    .vesitable-item p {
+                        font-size: 0.9rem;
+                    }
+
+                    .vesitable-item .themgiohang {
+                        font-size: 0.9rem;
+                    }
+                }
+            </style>
+            {% for slide in list_all %}
+            <div class="border border-primary rounded position-relative vesitable-item bg-white">
+                <div class="vesitable-img">
+                    <a href="{{url_for('home.detail',name=slide.name | slug,id=slide.id)}}">
+                        <img src="{{url_for('static',filename='upload/'+ slide.image)}}"
+                            class="img-fluid w-100 rounded-pill" alt="{{slide.name}}">
+                    </a>
+                </div>
+                <div class="px-3 py-1 rounded position-absolute"
+                    style="top: 10px; right: 10px;color: rgb(251, 3, 3);background-color: white;font-weight: bold;">
+                    Hot Trending</div>
+                <div class="p-4 rounded-bottom">
+                    <a href="{{url_for('home.detail',name=slide.name |slug ,id=slide.id)}}">
+                        <h4>{{slide.name}}</h4>
+                    </a>
+                    <p>{{slide.desc |safe}}</p>
+                    <div class="d-flex justify-content-between flex-lg-wrap">
+                        <p class="text-dark fs-5 fw-bold mb-0"> {{"{:,.3f}".format(slide.price)}} đ/ ốp</p>
+                        <a href="#" data-product-id="{{slide.id}}"
+                            class=" themgiohang btn border border-secondary rounded-pill px-3 text-danger "><i
+                                class="fa fa-shopping-bag me-2 text-danger"></i> Săn ngay</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<!-- Vesitable Shop End -->
+
+
+<!-- Banner Section Start-->
+<div class="container-fluid banner my-5" style="background-color: aquamarine;">
+    <div class="container py-5">
+        <div class="row g-4 align-items-center">
+            <div class="col-lg-6">
+                <div class="py-4">
+                    <h1 class="display-3 text-primary">Luôn Luôn Có Ốp Hot Nhất</h1>
+                    <p class="fw-normal display-3 text-dark mb-4">trong cửa hàng chúng tôi</p>
+                    <p class="mb-4 text-dark">Chúng tôi luôn mang lại những bộ áo mới cho Dế Yêu , cập nhật xu hướng HOT
+                        HIT nhất nhanh nhất cho tín đồ Dế Yêu</p>
+                    <a href="{{url_for('home.category')}}"
+                        class="banner-btn btn border-2 border-white rounded-pill text-danger py-3 px-5">LỤM LIỀN TAY</a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="position-relative">
+                    <img src="img/baner-1.png" class="img-fluid w-100 rounded" alt="">
+                    <div class="d-flex align-items-center justify-content-center bg-white rounded-circle position-absolute"
+                        style="width: 140px; height: 140px; top: 0; left: 0;">
+                        <h1 style="font-size: 100px;">1</h1>
+                        <div class="d-flex flex-column">
+                            <span class="h2 mb-0">50K</span>
+                            <span class="h4 text-muted mb-0">Ốp</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Banner Section End -->
+
+
+<!-- Bestsaler Product Start -->
+<div class="container-fluid py-5 " style="background-color: rgb(9, 235, 160);">
+    <div class="container py-5">
+        <div class="text-center mx-auto mb-5" style="max-width: 700px;">
+            <h1 class="display-4">Bán Chạy Nhất</h1>
+            <p>Dòng sản phẩm luôn được săn đón nhất thị trường và đang được đặt trước vì luôn cháy hàng, hãy nhanh tay
+                cập nhật và đặt ngay nhé</p>
+        </div>
+       
+        <div class="row g-4">
+            {%for best in list_11%}
+            <div class="col-lg-6 col-xl-4">
+                <div class="p-4 rounded bg-light">
+                    <div class="row align-items-center">
+                        <div class=" col-6">
+                            <a href="{{url_for('home.detail',name=best.name | slug,id=best.id)}}">
+                                <img src="{{url_for('static',filename='upload/'+ best.image)}}"
+                                    class="img-fluid w-100 rounded-pill" alt="{{best.name}}">
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <a href="{{url_for('home.detail',name=best.name |slug ,id=best.id)}}">
+                                <h4>{{best.name}}</h4>
+                            </a>
+                            <div class="d-flex my-3">
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                                <i class="fas fa-star text-secondary"></i>
+                            </div>
+                            <h4 class="mb-3"> {{"{:,.3f}".format(best.price)}} đ/ ốp</h4>
+                            <a href="#" data-product-id="{{best.id}}"
+                                class=" themgiohang btn border border-secondary rounded-pill px-3 text-danger"><i
+                                    class="fa fa-shopping-bag me-2 text-danger"></i> LỤM NGAY</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+
+            <style>
+                /* Đảm bảo hình ảnh có kích thước bằng nhau */
+                .vesitable-img img {
+                    width: 100%;
+                    /* Đảm bảo hình ảnh chiếm hết chiều rộng của container */
+                    height: 200px;
+                    /* Đặt chiều cao cố định cho hình ảnh */
+                    object-fit: cover;
+                    /* Đảm bảo hình ảnh không bị méo và luôn đầy đủ trong container */
+                    border-radius: 50%;
+                    /* Nếu bạn muốn hình ảnh có dạng tròn */
+                }
+    
+                /* Đảm bảo container của hình ảnh luôn có kích thước nhất quán */
+                .vesitable-img {
+                    width: 100%;
+                    height: 200px;
+                    /* Chiều cao cố định cho phần container hình ảnh */
+                    overflow: hidden;
+                    /* Ẩn phần tràn nếu có */
+                }
+    
+                /* Điều chỉnh các phần tử văn bản và button */
+                .vesitable-img .py-4 {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                }
+    
+                .vesitable-img h4 {
+                    font-size: 1.2rem;
+                    margin-bottom: 15px;
+                }
+    
+                /* Điều chỉnh rating stars */
+                .vesitable-img .d-flex i {
+                    font-size: 1rem;
+                    /* Điều chỉnh kích thước sao */
+                    color: #e0a800;
+                    /* Màu sao vàng */
+                }
+    
+                /* Điều chỉnh nút LỤM NGAY */
+                .vesitable-img .themgiohang {
+                    font-size: 1rem;
+                    padding: 10px 20px;
+                }
+    
+                /* Responsive Design: Điều chỉnh khi hiển thị trên các thiết bị nhỏ */
+                @media (max-width: 768px) {
+                    .vesitable-img {
+                        height: 250px;
+                        /* Chiều cao điều chỉnh cho các thiết bị nhỏ hơn */
+                    }
+    
+                    .vesitable-img img {
+                        height: 100%;
+                        /* Đảm bảo hình ảnh luôn chiếm hết chiều cao */
+                    }
+    
+                    .vesitable-img h4 {
+                        font-size: 1rem;
+                    }
+                }
+            </style>
+
+            {%for bester in list_12%}
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="vesitable-img text-center bg-light">
+                    <a href="{{url_for('home.detail',name=bester.name | slug,id=bester.id)}}">
+                        <img src="{{url_for('static',filename='upload/'+ bester.image)}}"
+                            class="img-fluid w-100 rounded-pill" alt="{{bester.name}}">
+                    </a>
+                    <div class="py-4">
+                        <a href="{{url_for('home.detail',name=bester.name |slug ,id=bester.id)}}">
+                            <h4>{{bester.name}}</h4>
+                        </a>
+                        <div class="d-flex my-3 justify-content-center">
+                            <i class="fas fa-star text-danger"></i>
+                            <i class="fas fa-star text-danger"></i>
+                            <i class="fas fa-star text-danger"></i>
+                            <i class="fas fa-star text-danger"></i>
+                            <i class="fas fa-star text-danger"></i>
+                        </div>
+                        <h4 class="mb-3">{{"{:,.3f}".format(bester.price)}} đ/ ốp</h4>
+                        <a href="#" data-product-id="{{bester.id}}"
+                            class=" themgiohang btn border border-secondary rounded-pill px-3 text-danger"><i
+                                class="fa fa-shopping-bag me-2 text-danger"></i> LỤM NGAY</a>
+                    </div>
+                </div>
+            </div>
+            {%endfor%}
+        </div>
+    </div>
+</div>
+<!-- Bestsaler Product End -->
+
+
+<!-- Fact Start -->
+<div class="container-fluid py-5" style="background-color: rgb(156, 248, 126);">
+    <div class="container">
+        <div class="bg-info p-5 rounded">
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter bg-light rounded p-5">
+                        <i class="fa fa-users text-info"></i>
+                        <h4 style="color: red;font-weight: bold;">KHÁCH HÀNG HÀI LÒNG</h4>
+                        <h1 style="color: rgb(100, 7, 251);font-weight: bold;">2963</h1>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter bg-white rounded p-5">
+                        <i class="fa fa-users text-info"></i>
+                        <h4 style="color: red;font-weight: bold;">CHẤT LƯỢNG DỊCH VỤ</h4>
+                        <h1 style="color: rgb(100, 7, 251);font-weight: bold;">99%</h1>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter bg-white rounded p-5">
+                        <i class="fa fa-users text-info"></i>
+                        <h4 style="color: red;font-weight: bold;">CHỨNG NHẬN CHẤT LƯỢNG</h4>
+                        <h1 style="color: rgb(100, 7, 251);font-weight: bold;">33</h1>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="counter bg-white rounded p-5">
+                        <i class="fa fa-users text-info"></i>
+                        <h4 style="color: red;font-weight: bold;">SẢN PHẨM CÓ SẴN</h4>
+                        <h1 style="color: rgb(100, 7, 251);font-weight: bold;">7893</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact Start -->
+{% endblock %}

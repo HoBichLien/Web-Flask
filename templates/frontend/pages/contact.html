@@ -1,0 +1,98 @@
+{% extends ('frontend/layout.html') %}
+{% block content %}
+ 
+        <!-- Single Page Header start -->
+        <div class="container-fluid page-header py-5">
+          <h1 class="text-center text-white display-6">Liên Hệ</h1>
+        
+      </div>
+      <!-- Single Page Header End -->
+
+
+      <!-- Contact Start -->
+      <div class="container-fluid contact py-5">
+          <div class="container py-5">
+              <div class="p-5 bg-light rounded">
+                  <div class="row g-4">
+                      <div class="col-12">
+                          <div class="text-center mx-auto" style="max-width: 700px;">
+                              <h1 class="text-primary">Get in touch</h1>
+                              <p class="mb-4">The contact form is currently inactive. Get a functional and working contact form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
+                          </div>
+                      </div>
+                      <div class="col-lg-12">
+                          <div class="h-100 rounded">
+                            <iframe class="rounded w-100" 
+                            style="height: 400px;" 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.544590711663!2d106.67359457416055!3d10.762622992339125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752f1a4b3a29b5%3A0x1248e8a8569e12d6!2zMzQ1IE5nw7QgR2lhIFThu7EsIFF14bqtbiAxMCwgUXXhuq1uIDExLCBUaMOgbmggcGjDuiBIQ00sIFZpZXRuYW0!5e0!3m2!1sen!2s!4v1694259649153!5m2!1sen!2s"
+                            loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                    </iframe>
+                    
+                          </div>
+                      </div>
+                      <div class="col-lg-7">
+                        <form method="post" class="row g-3">
+                            {{ form.hidden_tag() }}
+                            <div class="col-md-6">
+                                <label class="form-label">{{ form.name.label }}</label>
+                                {{ form.name(class="form-control") }}
+                                {% for error in form.name.errors %}
+                                <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">{{ form.phone.label }}</label>
+                                {{ form.phone(class="form-control") }}
+                                {% for error in form.phone.errors %}
+                                <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">{{ form.email.label }}</label>
+                                {{ form.email(class="form-control") }}
+                                {% for error in form.email.errors %}
+                                <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-12">
+                                <label class="form-label">{{ form.message.label }}</label>
+                                {{ form.message(class="form-control", rows=5) }}
+                                {% for error in form.message.errors %}
+                                <div class="text-danger small">{{ error }}</div>
+                                {% endfor %}
+                            </div>
+                            <div class="col-md-12 text-end">
+                                {{ form.submit(class="btn btn-primary btn-lg") }}
+                            </div>
+                        </form>
+                        
+                      </div>
+                      <div class="col-lg-5">
+                          <div class="d-flex p-4 rounded mb-4 bg-white">
+                              <i class="fas fa-map-marker-alt fa-2x text-primary me-4"></i>
+                              <div>
+                                  <h4>Address</h4>
+                                  <p class="mb-2"> 345 Ngô Gia Tự HCM</p>
+                              </div>
+                          </div>
+                          <div class="d-flex p-4 rounded mb-4 bg-white">
+                              <i class="fas fa-envelope fa-2x text-primary me-4"></i>
+                              <div>
+                                  <h4>Mail Us</h4>
+                                  <p class="mb-2">comtambichlien@gmail.com</p>
+                              </div>
+                          </div>
+                          <div class="d-flex p-4 rounded bg-white">
+                              <i class="fa fa-phone-alt fa-2x text-primary me-4"></i>
+                              <div>
+                                  <h4>Telephone</h4>
+                                  <p class="mb-2">+84 0388.215.124</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!-- Contact End -->
+{% endblock %}

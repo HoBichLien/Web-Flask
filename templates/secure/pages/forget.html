@@ -1,0 +1,42 @@
+{% extends ('secure/layout.html') %}
+{% block content %}
+<div class="auth-content">
+    <div class="card">
+        <div class="card-body text-center">
+            <div class="mb-4">
+                <img class="brand" src="{{url_for('static',filename='backend/img/logo.png')}}" alt="bootstraper logo" width="150px " height="100">
+            </div>
+            <h6 class="mb-4 text-muted">Restore Password</h6>
+          
+            {% with tb=get_flashed_messages() %}
+                {% if tb %}
+                    <div class="text-danger">{{tb[0]}}</div>
+                {% endif %}
+            {% endwith %}
+            <form  method="post" novalidate>
+                {{form.hidden_tag()}}
+                
+                <div class="mb-3 text-start">
+                    <label for="email" class="form-label">{{form.email.lable}}</label>
+                    {{form.email}}
+                    {%for error in form.email.errors%}
+                    <span style="color: red;">{{error}}</span>
+                    {%endfor%}
+                    
+                </div>
+                <div class="mb-3 text-start">
+                    <label for="phone" class="form-label"> {{form.phone.lable}}</label>
+                    {{form.phone}}
+                    {%for error in form.phone.errors%}
+                    <span style="color: red;">{{error}}</span>
+                    {%endfor%}
+                   
+                </div>
+            
+                {{form.submit}}
+            </form>
+            <p class="mb-0 text-muted">Login an account? <a href="{{url_for('secure.login')}}">Log in</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}
