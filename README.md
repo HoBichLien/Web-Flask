@@ -10,7 +10,7 @@ PhoneCasePro will be a dynamic and user-friendly website dedicated to phone case
 <br  />
 <a  href="https://github.com/HoBichLien/Web-Flask"><strong>Explore the source »</strong></a>
 <br  /><a  href="https://youtu.be/kAoc0l0VRv8" target="_blank">Video</a>
-<a href="https://homestyler-livid.vercel.app/">view demo</a>
+<a href="https://www.opdienthoai.holien.io.vn/">view demo</a>
 
 
   ### Built With
